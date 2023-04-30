@@ -8,7 +8,10 @@ app.use('/users', userRouter);
 app.get('/', (req, res) => {
     res.send("Dhairya: There is a hope !!");
 })
-mongoose.connect('mongodb+srv://dhairya:vitb@dhairya-cluster.m86tlsf.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://dhairya:vitb@dhairya-cluster.m86tlsf.mongodb.net/?retryWrites=true&w=majority', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
     .then(() => {
         app.listen(5000, () => {
             console.log("Listening on port 5000");
