@@ -1,7 +1,8 @@
-const problems = require('../data/problemsofSmoking');
+const problemModel = require('../models/problemModel');
 
 exports.getProblem = async (req, res) => {
     try {
+        const problems = await problemModel.find();
         const index = Math.floor(Math.random() * problems.length);
         const problem = problems[index];
         res.status(200).json({

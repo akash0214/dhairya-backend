@@ -1,7 +1,8 @@
-const articles = require('../data/articles');
+const articleModel = require('../models/articleModel');
 
 exports.getArticle = async (req, res) => {
     try {
+        const articles = await articleModel.find();
         const index = Math.floor(Math.random() * articles.length);
         const article = articles[index];
         res.status(200).json({

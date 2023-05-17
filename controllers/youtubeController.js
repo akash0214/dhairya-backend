@@ -1,7 +1,8 @@
-const videos = require('../data/youtubeVideos');
+const videoModel = require('../models/videoModel');
 
 exports.getVideo = async (req, res) => {
     try {
+        const videos = await videoModel.find();
         const index = Math.floor(Math.random() * videos.length);
         const video = videos[index];
         res.status(200).json({
