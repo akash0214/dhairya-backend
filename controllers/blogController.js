@@ -3,10 +3,10 @@ const blogModel = require('../models/blogModel');
 exports.getBlog = async(req, res) => {
     try {
         const blogs = await blogModel.find();
-        const index = Math.floor(Math.random() * blogs.length);
-        const blog = blogs[index];
+        // const index = Math.floor(Math.random() * blogs.length);
+        // const blog = blogs[index];
         res.status(200).json({
-            blog: blog,
+            blog: blogs,
             message: "Fetched a blog",
         })
     } catch (error) {
